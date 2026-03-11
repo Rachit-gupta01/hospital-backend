@@ -6,6 +6,9 @@ const app = express();
 
 app.use(express.json());
 app.use("/api", patientRoutes);
+app.get("/", (req, res) => {
+res.send("Hospital Backend API Running");
+});
 mongoose.connect(process.env.MONGO_URI)
 .then(()=> console.log("MongoDB Connected"))
 .catch(err => console.log(err));
